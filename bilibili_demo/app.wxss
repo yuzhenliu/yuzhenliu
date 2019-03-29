@@ -1,0 +1,6 @@
+/**app.wxss**/
+/* 这里原本是导入字体图标的  但是我没有 */
+/* @import ''; */
+page,view,image,swiper,swiper-item,video,navigate{
+  box-sizing: border-box;
+}

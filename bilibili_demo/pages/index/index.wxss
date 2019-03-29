@@ -1,0 +1,73 @@
+/**index.wxss**/
+page {
+  color: #666;
+  padding: 10rpx;
+}
+/* 首页导航 */
+.nav_warp {
+  
+}
+.nav {
+  padding: 5rpx 0;
+  white-space: nowrap;
+}
+.nav-item {
+  display: inline-block;
+  padding: 20rpx 45rpx;
+  font-size: 30rpx;
+}
+.nav-item.avtive {
+  border-bottom: 5rpx solid #de688b;
+}
+/* 轮播图模块 */
+.slides{
+  margin: 10rpx;
+}
+.slides swiper {
+  height: 220rpx;
+}
+.slides navigator {
+  width:100%;
+  height: 100%;
+}
+.slides image {
+  width:100%;
+  height: 100%;
+}
+/* 视频模块 */
+.video_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5rpx;
+}
+.video_item {
+  width: 48%;
+  margin-bottom: 20rpx;
+}
+.video_img {
+  position: relative;
+}
+.video_img image {
+  width: 100%;
+  border-radius: 15rpx;
+}
+.video_img .video_info {
+  position: absolute;
+  left: 0;
+  bottom: 10rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  font-size: 24rpx;
+}
+.video_title {
+  font-size: 28rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
