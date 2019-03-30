@@ -48,7 +48,7 @@ getSwiperList(){
     url: 'https://easy-mock.com/mock/5c1dfd98e8bfa547414a5278/bili/swiperList',
     success(res){
       // console.log(res);
-      if(res.data.decode===0){
+      if(res.data.code===0){
         that.setData({
           swiperList:res.data.data.swiperList
         })
@@ -66,7 +66,7 @@ getSwiperList(){
       url: 'https://easy-mock.com/mock/5c1dfd98e8bfa547414a5278/bili/videosList',
       success(res){
         //console.log(res);
-        if(res.data.decode===0){
+        if(res.data.code===0){
           that.setData({
             videosList:res.data.data.videosList
           })
