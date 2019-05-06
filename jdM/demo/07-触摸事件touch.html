@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>触摸事件</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<!-- 1. touch 是移动端的触摸事件 而且是一组事件 -->
+	<!-- 2. touchstart	当手指触摸屏幕的时候触发 -->
+	<!-- 3. touchmove	当手指在屏幕来回滑动的时候触发 -->
+	<!-- 4. touchend		当手机离开屏幕的时候触发 -->
+	<!-- 5. touchcancel	 当被迫终止滑动的时候触发(来电，弹消息) -->
+	<!-- 6. 利用 touch 相关事件实现移动端常见滑动效果和移动端常见的手势事件 -->
+	<!-- 绑定事件:
+		1. on
+		2. addEventListener: chrome
+		3. attach: IE
+	 -->
+	<!-- 使用 touch 
+		1. 绑定事件: addEventListener
+		2. 事件对象:
+			名字: TouchList --- 触摸点(一个手指去触摸就是一个触摸点, 和屏幕的接触点的个数)的集合
+			changedTouches	改变后的触摸点集合
+			targetTouches	触发当前元素的触摸点集合
+			touches			界面上所有触摸点集合
+		3. 触摸点集合在每个事件触发的时候会不会去记录触摸
+		changedTouches 每个事件都会记录
+		targetTouches, touches 在离开屏幕的时候无法记录触摸点
+		4. 分析滑动实现的原理
+		4.1 就是让触摸的元素随着手指的滑动做位置的改变
+		4.2 位置的改变: 需要当前手指的坐标
+		4.3 在每一个触摸点中会记录当前触摸点的坐标
+		4.4 clientX clientY	 基于浏览器窗口(视口)
+		4.5 pageX pageY 	基于页面(视口)
+		4.6 screenX screenY  基于屏幕
+	-->
+	<div class="box"></div>
+	<script>
+		window.onload = function () {
+			var box = document.querySelector('.box')
+			box.addEventListener('touchstart', function (e) {
+				console.log('start')
+				// console.log(e)
+				console.log(e.touches[0].clientX, e.touches[0].clientY)
+				console.log(e.touches[0].pageX, e.touches[0].pageY)
+				console.log(e.touches[0].screenX, e.touches[0].screenY)
+			})
+			box.addEventListener('touchmove', function (e) {
+				// console.log('move')
+				// console.log(e)
+			})
+			box.addEventListener('touchend', function (e) {
+				console.log('end')
+				console.log(e)
+			})
+		}
+	</script>
+</body>
+</html>
