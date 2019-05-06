@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tap 事件</title>
+	<style>
+		.box {
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<!-- 
+		1. tap 事件 轻击 轻触  (响应速度快)
+		2. 移动端也有 click 事件 (在移动端为了区分是滑动还是点击  click 点击延时 300ms)
+		3. 影响用户体验  响应太慢了
+		4. 解决方案:
+		4.1 使用 tap 事件 (不是移动端原生事件 通过 touch 相关事件衍生过来)  了解其原理
+		4.2 使用一个叫做 fastclick.js 的插件 提高移动端 click 响应速度的
+		4.2.1 下载:  https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+		4.2.2 使用: 引入进来
+	 -->
+	 <script src="../js/fastclick.min.js"></script>
+	 <script>
+	 	// 当页面的 dom 元素加载完成
+   		 document.addEventListener('DOMContentLoaded', function() {
+   		 	// 初始化方法
+        FastClick.attach(document.body);
+    }, false);
+   		 // 正常使用 click 即可
+	 </script>
+	 <script>
+	 	window.onload = function () {
+	 		// 使用 tap 事件
+	 		// 1. 响应的速度比 click 要快 150ms
+	 		// 2. 不能滑动
+	 		var isMove = false
+	 		var bindTapEvent = function (dom, callback) {
+	 			// 事件的执行顺序
+	 			// 在谷歌浏览器模拟看不到 300ms 的效果
+	 			// 只有在真机上面才能看到延时效果
+	 			dom.addEventListener('touchstart', function () {
+	 				// console.log('touchstart')
+	 				// startTime = new Date().getTime()
+	 				startTime = Date.now()
+	 				// console.log(startTime)
+	 			})
+	 			dom.addEventListener('touchmove', function () {
+	 				// console.log('touchmove')
+	 				isMove = true
+	 			})
+	 			dom.addEventListener('touchend', function (e) {
+	 				// console.log('touchend')
+	 				if ((Date.now() - startTime) < 150 && !isMove) {
+	 					callback && callback.call(this, e)
+	 				}
+	 				startTime = 0
+	 				isMove = false
+	 			})
+	 			// dom.addEventListener('click', function () {
+	 			// 	console.log('click')
+	 			// })
+	 		}
+	 		bindTapEvent(document.querySelector('.box'), function (e) {
+	 			console.log(this)
+	 			console.log(e)
+	 			console.log('tap')
+	 		})
+	 	}
+	 </script>
+</body>
+</html>

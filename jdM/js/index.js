@@ -88,7 +88,7 @@ var banner = function () {
 		setTranslateX(-index * width)
 		
 		// console.log(index)	
-		}, 500)
+		}, 1000)
 		// console.log(index)
 
 	// 需要等最后一张动画结束去判断 是否瞬间定位第一张
@@ -134,13 +134,15 @@ var banner = function () {
 
 	// 绑定事件
 	var startX = 0
+	var distanceX = 0
+	var isMove = false
 	imageBox.addEventListener('touchstart', function (e) {
 		
 		// 清除定时器
 		// 这里当时有一个错误: 我写成了 'timer' 结果没有报错但是效果错了
 		clearInterval(timer)
 		// 记录起始位置的 x 坐标
-		var startX = e.touches[0].clientX
+		startX = e.touches[0].clientX
 		// console.log(startX)
 	})
 	imageBox.addEventListener('touchmove', function (e) {
@@ -148,21 +150,92 @@ var banner = function () {
 		var moveX = e.touches[0].clientX
 		// console.log(moveX)
 		// 计算位移  有正负方向
-		var distanceX = moveX - startX
+		distanceX = moveX - startX
 		// console.log(distanceX)
 		// 计算目标元素的位移  不用管正负
 		// 元素将要的定位 = 当前定位 + 手指移动的距离 
 		var translateX = -index * width + distanceX
+		// 滑动 ---> 元素随着手指的滑动做位置的改变
 		removeTransition()
 		setTranslateX(translateX)
+		isMove = true
 	})
 	imageBox.addEventListener('touchend', function (e) {
+		// 确保一定是滑动过的
+		if (isMove) {
+				// 4, 5	实现
+			// 要使用移动的距离
+			if (Math.abs(distanceX) < width / 3) {
+				// 吸附回去
+				addTransition()
+				setTranslateX(-index * width)
+			}else {
+				// 切换
+				// 往右滑动 上一张	 > 0
+				if (distanceX > 0) {
+					// console.log('上一张')
+					index --
+				}else {
+					// 往左滑动 下一张
+					// console.log('下一张')
+					index ++
+				}
+				// 设置位移
+				addTransition()
+				setTranslateX(-index * width)
+			}
+		}
+	
+		// 最好做一次参数的重置
+		distanceX = 0
+		startX = 0
+		isMove = false
+		// 加上定时器  加之前做好再清除一遍
+		clearInterval(timer)
+		timer = setInterval(function () {
+		// 这句我当时忘了 结果 index 一直都是 1
+		index ++
+		// 加过渡
+		addTransition()
+		// 做位移
+		setTranslateX(-index * width)
 		
+		// console.log(index)	
+		}, 1000)
+		// console.log(index)
 	})
 }
 
 // 3. 倒计时
 var downTime = function () {
+	// 倒计时的时间
+	var time = 2 * 60 * 60
 
+	// 显示时间的 span (时间盒子)
+	var spans = document.querySelector('.time').querySelectorAll('span')
+
+	// 每一秒去  更新显示的时间
+	var timer = setInterval(function () {
+		time --
+			// 时间 格式 时 分 秒
+		var h = Math.floor(time / 3600)
+		var m = Math.floor(time % 3600 / 60)
+		var s = Math.floor(time % 60)
+
+		spans[0].innerHTML = Math.floor(h / 10)
+		spans[1].innerHTML = h % 10
+
+		spans[3].innerHTML = Math.floor(m / 10)
+		spans[4].innerHTML = m % 10
+
+		spans[6].innerHTML = Math.floor(s / 10)
+		spans[7].innerHTML = s % 10
+
+		if (time <= 0) {
+			clearInterval(timer)
+		}
+
+	}, 1000)
+	
 }
 
