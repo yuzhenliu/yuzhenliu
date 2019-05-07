@@ -38,10 +38,112 @@
 			</div>
 		</div>
 	</header>
+
 	<!-- 导航栏 -->
-	<nav class="wjs_nav"></nav>
+	<!-- navbar 导航模块 navbar-default 默认样式  navbar-inverse 颜色反转-->
+	<nav class="navbar wjs_nav">
+		<!-- 导航的内容容器  流式布局容器(container-fluid) -->
+  		<div class="container">
+  			<!-- 这个模块 包括 商标区域 和 切换按钮(在移动端显示) -->
+    		<!-- Brand and toggle get grouped for better mobile display -->
+   			<div class="navbar-header">
+    			<!-- 切换按钮 -->
+    			<!-- 
+    			类名: collapsed 样式
+    			属性: 
+    			data-toggle='collapse' 申明是什么组件 = 折叠组件
+    			data-target='#bs-example-navbar-collapse-1' 控制的目标元素 = 选择器
+    			其他: 
+    				aria-expanded="false" aria-*  代表给屏幕阅读器使用的(盲人阅读器)
+    				sr-only screen red only
+    			-->
+      			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+     			</button>
+      			<!-- 商标按钮 -->
+      			<a class="navbar-brand" href="#">
+      				<span class="wjs_icon wjs_icon_logo"></span>
+      				<span class="wjs_icon wjs_icon_name"></span>
+      			</a>
+    		</div>
+	
+			<!-- 导航链接  表单  其他内容  被切换 -->
+    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    		<!-- 默认的导航 -->
+     		<ul class="nav navbar-nav">
+        		<li class="active"><a href="#">我要投资</a></li>
+        		<li><a href="#">我要借贷</a></li>
+        		<li><a href="#">平台介绍</a></li>
+        		<li><a href="#">新手专区</a></li>
+        		<li><a href="#">最新动态</a></li>
+       			<li><a href="#">微平台</a></li>
+      		</ul>
+      		<!-- 右对齐的导航 -->
+      		<ul class="nav navbar-nav navbar-right hidden-sm">
+        		<li><a href="#">个人中心</a></li>
+      		</ul>
+    		</div><!-- /.navbar-collapse -->
+  		</div><!-- /.container -->
+	</nav>
+
 	<!-- 轮播图 -->
-	<section class="wjs_banner"></section>
+	<section class="wjs_banner">
+		<!-- carousel 轮播图的模块  slide 是否加上滑动效果 -->
+	<!-- data-ride="carousel"  初始化轮播图属性 -->
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+ 	 	<!-- Indicators 指示器-->
+  		<ol class="carousel-indicators">
+  			<!-- 
+  				data-target="#carousel-example-generic" 控制目标轮播图
+  				data-slide-to="0" 控制的是轮播图当中的第几张(索引)
+  				class="active" 当前选中的点
+  			-->
+    		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  		</ol>
+
+  		<!-- Wrapper for slides 图片盒子-->
+  		<!-- role='listbox' 提供给屏幕阅读器使用 -->
+  		<div class="carousel-inner">
+  			<!-- 需要轮播的容器 -->
+    		<div class="item active">
+    			<!-- 图片 -->
+      			<img src="images/slide_01_2000x410.jpg" alt="...">
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<img src="images/slide_02_2000x410.jpg" alt="...">
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<img src="images/slide_03_2000x410.jpg" alt="...">
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<img src="images/slide_04_2000x410.jpg" alt="...">
+   			</div>
+  		</div>
+
+  		<!-- Controls -->
+  		<!-- 上一张下一张按钮 -->
+  		<!-- 
+  	 		data-slide="prev"
+  	 		data-slide="next"
+  	 		href="#carousel-example-generic" 控制的目标
+  		-->
+  		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  		</a>
+  		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  		</a>
+	</div>	
+	</section>
+
 	<!-- 信息 -->
 	<section class="wjs_info"></section>
 	<!-- 预约 -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<title>简洁模板</title>
+	<link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<!-- navbar 导航模块 navbar-default 默认样式  navbar-inverse 颜色反转-->
+<nav class="navbar navbar-default">
+	<!-- 导航的内容容器  流式布局容器(container-fluid) -->
+  <div class="container">
+  	<!-- 这个模块 包括 商标区域 和 切换按钮(在移动端显示) -->
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+    	<!-- 切换按钮 -->
+    	<!-- 
+    		类名: collapsed 样式
+    		属性: 
+    		data-toggle='collapse' 申明是什么组件 = 折叠组件
+    		data-target='#bs-example-navbar-collapse-1' 控制的目标元素 = 选择器
+    		其他: 
+    			aria-expanded="false" aria-*  代表给屏幕阅读器使用的(盲人阅读器)
+    			sr-only screen red only
+    	-->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- 商标按钮 -->
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+	
+	<!-- 导航链接  表单  其他内容  被切换 -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    	<!-- 默认的导航 -->
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+      <!-- 右对齐的导航 -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav>
+
+	<script src="../lib/jquery/jquery.min.js"></script>
+	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

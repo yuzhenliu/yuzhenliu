@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<title>简洁模板</title>
+	<link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<style>
+		.m_imgBox {
+			display: block;
+			width: 100%;
+		}
+		.m_imgBox img {
+			display: block;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		需求: 宽度自适应, 高度自动变化 
+	-->
+
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+ 	 	<!-- Indicators 指示器-->
+  		<ol class="carousel-indicators">
+  			<!-- 
+  				data-target="#carousel-example-generic" 控制目标轮播图
+  				data-slide-to="0" 控制的是轮播图当中的第几张(索引)
+  				class="active" 当前选中的点
+  			-->
+    		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  		</ol>
+
+  		<!-- Wrapper for slides 图片盒子-->
+  		<!-- role='listbox' 提供给屏幕阅读器使用 -->
+  		<div class="carousel-inner">
+  			<!-- 需要轮播的容器 -->
+    		<div class="item active">
+    			<!-- 图片 服务端动态渲染-->
+      			<a href="#" class="m_imgBox"><img src="../images/slide_01_640x340.jpg" alt=""></a>
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<a href="#" class="m_imgBox"><img src="../images/slide_02_640x340.jpg" alt=""></a>
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<a href="#" class="m_imgBox"><img src="../images/slide_03_640x340.jpg" alt=""></a>
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<a href="#" class="m_imgBox"><img src="../images/slide_41_640x340.jpg" alt=""></a>
+   			</div>
+  		</div>
+
+  		<!-- Controls -->
+  		<!-- 上一张下一张按钮 -->
+  		<!-- 
+  	 		data-slide="prev"
+  	 		data-slide="next"
+  	 		href="#carousel-example-generic" 控制的目标
+  		-->
+  		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  		</a>
+  		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  		</a>
+	</div>
+
+	<script src="../lib/jquery/jquery.min.js"></script>
+	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<title>简洁模板</title>
+	<link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<style>
+		.pc_imgBox {
+			height: 500px;
+			width: 100%;
+			-webkit-background-size: cover;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			/*background-image: url('../images/slide_01_2000x410.jpg');*/
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		需求: 高度固定 图片居中 容器铺满
+		怎么设置不同图片: 使用 css 选择器来设置不太好(html 内容动态改变不利于维护)
+	-->
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+ 	 	<!-- Indicators 指示器-->
+  		<ol class="carousel-indicators">
+    		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+   			<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  		</ol>
+  		<div class="carousel-inner">
+  			<!-- 需要轮播的容器 -->
+    		<div class="item active">
+    			<!-- 图片 让后端动态渲染-->
+    			<a href="#" class="pc_imgBox" style="background-image: url('../images/slide_01_2000x410.jpg');"></a>
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<a href="#" class="pc_imgBox" style="background-image: url('../images/slide_02_2000x410.jpg');"></a>
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<a href="#" class="pc_imgBox" style="background-image: url('../images/slide_03_2000x410.jpg');"></a>
+   			</div>
+   			<div class="item">
+    			<!-- 图片 -->
+      			<a href="#" class="pc_imgBox" style="background-image: url('../images/slide_04_2000x410.jpg');"></a>
+   			</div>
+  		</div>
+  		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  		</a>
+  		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  		</a>
+	</div>	
+
+	<script src="../lib/jquery/jquery.min.js"></script>
+	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
