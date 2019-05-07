@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手势事件</title>
+	<style>
+		.box {
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		// 1. 理解移动端的手势事件
+		// 2. swipe swipeLeft swipeRight swipeUp swipeDown
+		// 3. 左滑和右滑 手势怎么实现
+		var bindSwipeEvent = function (dom, leftcallback, rightcallback) {
+			// 手势的条件
+			// 1. 必须滑动过
+			// 2. 滑动的距离 50px
+			var startX = 0
+			var isMove = false
+			var distanceX = 0
+			dom.addEventListener('touchstart', function (e) {
+				startX = e.touches[0].clientX
+			})
+			dom.addEventListener('touchmove', function (e) {
+				var moveX = e.touches[0].clientX
+				distanceX = moveX - startX
+				isMove = true 
+			})
+			dom.addEventListener('touchend', function (e) {
+				if (isMove && Math.abs(distanceX) > 50) {
+					// distanceX > 0 右滑 上一张
+					// distanceX < 0 左滑 下一张
+					if (distanceX > 0) {
+						rightcallback && rightcallback.call(this, e)
+					}else {
+						leftcallback && leftcallback.call(this, e)
+					}
+				}
+				// 重置参数
+				startX = 0
+				distanceX = 0
+				isMove = false
+			})
+		}
+
+		bindSwipeEvent(document.querySelector('.box'), function (e) {
+			console.log(this)
+			console.log('左滑手势')
+		}, function (e) {
+			console.log(this)
+			console.log('右滑手势')
+		})
+	</script>
+</body>
+</html>

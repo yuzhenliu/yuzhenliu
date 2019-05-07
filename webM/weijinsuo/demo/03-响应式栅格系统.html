@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--要求当前网页使用浏览器最高版本的内核来渲染-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--视口的设置：视口的宽度和设备一致，默认的缩放比例和PC端一致，用户不能自行缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- 优先加载和浏览器解释 -->
+	<title>响应式栅格系统</title>
+	<!-- Bootstrap 核心样式-->
+    <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<style>
+		.container {
+			background-color: pink;
+			height: 600px;
+		}
+		.row {
+			background-color: skyblue;
+			height: 100px;
+		}
+		.row div {
+			background-color: lightyellow;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		大屏设备 lg	 让 div 平均 分成 6 等份
+		中屏设备 md	 让 div 平均 分成 4 等份
+		小屏设备 sm	 让 div 平均 分成 3 等份
+		超小屏设备 xs  让 div 平均 分成 2 等份
+	 -->
+	<div class="container">
+	 	<div class="row">
+	 		<div class="col-lg-2"></div>
+	 		<div class="col-lg-2"></div>
+	 		<div class="col-lg-2"></div>
+	 		<div class="col-lg-2"></div>
+	 		<div class="col-lg-2"></div>
+	 		<div class="col-lg-2"></div>
+	 	</div>
+	</div>
+
+<!-- bootstrap依赖jquery-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../lib/jquery/jquery.min.js"></script>
+<!-- bootstrap js 核心文件-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

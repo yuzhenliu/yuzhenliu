@@ -1,0 +1,123 @@
+/*===========reset css============*/
+body {
+	font-size: 14px;
+	font-family: 'Microsoft YaHei', sans-serif;
+	color: #333;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #333;
+}
+
+/*自定义字体图标*/
+/*1. 通过 @font-face 定义自己的字体*/
+@font-face {
+	/*2. 申明自己的字体名称*/
+	font-family: 'wjs';
+	/*3. 引入字体文件(约束某一段字符代表什么图案)*/
+	src: 
+		url(../fonts/MiFie-Web-Font.svg) format('svg'),
+		url(../fonts/MiFie-Web-Font.eot) format('embedded-opentype'),
+		url(../fonts/MiFie-Web-Font.ttf) format('truetype'),
+		url(../fonts/MiFie-Web-Font.woff) format('woff');
+}
+
+/*4. 怎么使用维护性更好*/
+.wjs_icon {
+	font-family: wjs;
+}
+
+.wjs_icon_phone::before {
+	content: "\e908";
+}
+
+.wjs_icon_tell::before {
+	content: "\e909";
+}
+
+/*===========reset css============*/
+
+/* 顶部通栏 */
+.wjs_topBar {
+	border-bottom: 1px solid #ccc;
+	font-size: 12px;
+	color: #666;
+}
+
+.wjs_topBar > .container {
+
+}
+
+.wjs_topBar > .container > .row {
+
+}
+
+.wjs_topBar > .container > .row > div {
+	height: 40px;
+	border-left: 1px solid #ccc;
+	line-height: 40px;
+	text-align: center;
+
+}
+
+.wjs_topBar > .container > .row > div:first-child {
+	border-left: none;
+}
+
+.wjs_topBar .btn-register {
+	border: none;
+	font-size: 12px;
+	padding: 3px 12px;
+}
+
+.wjs_topBar .btn-register:hover {
+	background: #e92322;
+	color: #fff;
+}
+
+.wjs_topBar .btn-login {
+	font-size: 12px;
+	color: #666;
+}
+
+.wjs_topBar .btn-login:hover {
+	text-decoration: none;
+	color: #666;
+}
+
+/* +, ~ 选择器  + 紧邻的下一个兄弟元素  ~ 后面所有的兄弟元素*/
+/*.wjs_topBar > .container > .row > div {
+	height: 40px;
+}*/
+
+/*.wjs_topBar > .container > .row > div ~ div {
+	border-left: 1px solid #ccc;
+}*/
+
+/*.wjs_topBar > .container > .row > div + div {
+	border-left: 1px solid #ccc;
+}*/
+
+.wjs_app {
+	display: block;
+}
+
+.wjs_app img {
+	display: none;
+}
+
+.wjs_app:hover img {
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -60px;
+	border: 1px solid #ccc;
+	border-top: none;
+	top: 40px;
+}
